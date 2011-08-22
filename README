@@ -28,7 +28,7 @@ The following:
 <label for="checkbox_1">Checkbox 1</label>
 
 <script type="text/javascript" charset="utf-8">
-  $("input[type=checkbox],input[type=radio]").radiocheck
+  $("input[type=checkbox],input[type=radio]").radiocheck()
 </script>
 
 Will yield the following markup:
