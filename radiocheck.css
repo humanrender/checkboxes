@@ -1,0 +1,27 @@
+.checkbox, .radio{
+  display: -moz-inline-stack; /*Cross browser inline-block*/
+  display: inline-block;
+  vertical-align: middle;
+  zoom: 1;
+  *display: inline;
+  
+  background-image: url('radiocheck_sprite.png');
+  background-repeat: no-repeat;
+  height:16px;
+  width:16px;
+  overflow:hidden;
+}
+
+.checkbox input, .radio input{
+  position:relative;
+  display:block;
+  left:-99px;
+}
+
+.checkbox{ background-position:0 0; }
+.hover_checkbox{ background-position:0 -16px; }
+.active_checkbox{ background-position:0 -32px;  }
+
+.radio{ background-position:0 -48px; }
+.hover_radio{ background-position:0 -64px; }
+.active_radio{ background-position:0 -80px;  }
