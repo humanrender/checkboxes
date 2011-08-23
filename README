@@ -12,6 +12,12 @@ checkboxes does not honor any other events besides "click" and "change", nor doe
 
 $(selector).checkboxes();
 
+After initialization, if you want to check one or more checkboxes, then do:
+
+$(selector).checkboxes("check",true);
+
+Giving false as the second argument will uncheck the checkboxes, and giving no second argument toggle the checks.
+
 // ===========
 // = Example =
 // ===========
