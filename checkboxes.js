@@ -1,4 +1,10 @@
 (function( $ ){
+  
+  var methods = {
+    init:init,
+    check:check
+  }
+  
   function init(options){
     var self = $(this), _self = this;
     return self.each(function(){
@@ -28,22 +34,28 @@
   }
   
   function click_handler(){
+    check_input.apply(this);
+  }
+  
+  function check_input(checked){
     var self = $(this);
     // Retrieve input and find out if the input is checked
-    var input = this.input, check = !input.is(":checked"), is_radio = this.input_type == "radio";
+    var input = this.input, 
+        is_radio = this.input_type == "radio";
+    checked = checked == undefined ? !input.is(":checked") : checked;
     if(is_radio){
       // Uncheck any other radio
       checked_radios = $("[name="+this.input_name+"]:checked").not(input)
       if(checked_radios.length != 0)
         checked_radios.parent().removeClass("active_"+this.input_type)
     }
-    if(!is_radio || (is_radio && check)){ 
+    if(!is_radio || (is_radio && checked)){ 
       //Do not perform check/uncheck actions if is a radio and is checked
-      input.attr("checked",check);
-      active_replacement_class(self,check,this.input_type)
+      input.attr("checked",checked);
+      active_replacement_class(self,checked,this.input_type)
     }
     // Trigger binded change handlers
-    if(check) input.triggerHandler("change")
+    if(checked) input.triggerHandler("change")
     // Trigger binded click handlers
     input.triggerHandler("click")
   }
@@ -59,10 +71,23 @@
     this.trigger.trigger("click")
   }
   
-  function update(){
-
+  function check(checked){
+    return $(this).each(function(){
+      check_input.apply($(this).parent()[0],[checked])
+    })
   }
   
-  $.fn.radiocheck = init;
+  $.fn.checkboxes = function( method ) {
+  
+    // Method calling logic
+    if ( methods[method] ) {
+      return methods[ method ].apply( this, Array.prototype.slice.call( arguments, 1 ));
+    } else if ( typeof method === 'object' || ! method ) {
+      return methods.init.apply( this, arguments );
+    } else {
+      $.error( 'Method ' +  method + ' does not exist on jQuery.tooltip' );
+    }    
+  
+  };
 
 })( jQuery );

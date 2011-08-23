@@ -5,7 +5,7 @@
   zoom: 1;
   *display: inline;
   
-  background-image: url('radiocheck_sprite.png');
+  background-image: url('checkboxes_sprite.png');
   background-repeat: no-repeat;
   height:16px;
   width:16px;

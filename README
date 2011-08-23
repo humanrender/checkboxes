@@ -1,16 +1,16 @@
-RadioCheck is a jQuery plugin for custom radios and checkboxes.
+checkboxes is a jQuery plugin for custom radios and checkboxes.
 
 I wrote this tired of having to call update methods with existing input beautifier tools.
 
 Besides autoupdating, the inputs will still trigger any "change" or "click" bindings you have placed on them.
 
-Radiocheck does not honor any other events besides "click" and "change", nor does it 
+checkboxes does not honor any other events besides "click" and "change", nor does it 
 
 // =========
 // = USAGE =
 // =========
 
-$(selector).radiocheck();
+$(selector).checkboxes();
 
 // ===========
 // = Example =
@@ -28,7 +28,7 @@ The following:
 <label for="checkbox_1">Checkbox 1</label>
 
 <script type="text/javascript" charset="utf-8">
-  $("input[type=checkbox],input[type=radio]").radiocheck()
+  $("input[type=checkbox],input[type=radio]").checkboxes()
 </script>
 
 Will yield the following markup:
